@@ -334,7 +334,7 @@ app.post("/courses/:id/enroll",async (req,res)=>{
             if(courseData.length==0){
                 return res.status(400).json({message:"No course"});
             }
-            const checkpayment = await sql`SELECT * FROM user_id=${decoded.id} AND course_id=${coursesId}`;
+            const checkpayment = await sql`SELECT * FROM payments WHERE user_id=${decoded.id} AND course_id=${coursesId}`;
             let sumAmount = 0;
             for(let i = 0;i<checkpayment.length;i++){
                 sumAmount+=checkpayment[i].amount;
@@ -408,7 +408,7 @@ app.get("/payments/status/:id",async ()=>{
         const decoded = await jwt_verify(token);
         if(decoded){
             const courses_enrolled  = await sql`SELECT status FROM payments WHERE id=${id}`;
-            return res.json(courses_enrolled);
+            return res.json({data:courses_enrolled});
         }
         else{
             return res.status(400).json({message:"Not login"});
