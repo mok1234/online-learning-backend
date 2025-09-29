@@ -1,0 +1,38 @@
+{
+
+  "name": "my-backend",
+
+  "version": "1.0.0",
+
+  "type": "module",
+
+  "main": "index.js",
+
+  "scripts": {
+
+    "start": "node index.js"
+
+  },
+
+  "dependencies": {
+
+    "argon2": "^0.44.0",
+
+    "cookie-parser": "^1.4.7",
+
+    "dotenv": "^17.2.2",
+
+    "express": "^5.1.0",
+
+    "jsonwebtoken": "^9.0.2",
+
+    "multer": "^2.0.2",
+
+    "postgres": "^3.4.7",
+
+    "supabase": "^2.45.5"
+
+  }
+
+}
+
