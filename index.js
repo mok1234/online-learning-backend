@@ -35,7 +35,7 @@ function safemulter(mw){
                 return next();
             }
             else if(err){
-                return next(err);
+                res.status(403).json({ error: 'no data' });
             }
             next();
         })
